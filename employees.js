@@ -61,7 +61,8 @@ console.log(emA.getSchedule());
     dot or bracket notation.
 */
 
-//
+let emA = {...emA};
+emTwo.name = "Nick";
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -86,9 +87,20 @@ console.log(emA.getSchedule());
     the employees array. 
 */
 
-//CODE HERE
+class Manager extends Employee {
+    constructor(name, schedule, employees) {
+        super(name, schedule);
+        this.employees = employees;
+    }
 
+    getEmployees = () => {
+        return `${this.name} manages ${this.employees}`
+    }
 
+    addEmployee = emp => {
+        return this.employees.push(emp);
+    }
+}
 
 /*
     Create a new instance of your class.
@@ -101,7 +113,7 @@ console.log(emA.getSchedule());
     employees: Cece and Schmidt
 */
 
-//CODE HERE
+let manager = new Manager("Odysseus", ["MTWRF mornings", "MWF afternoons"], ["John", "Doe"])
 
 
 /*
@@ -109,7 +121,7 @@ console.log(emA.getSchedule());
     `manager` object.  
 */
 
-//CODE HERE
+manager.getEmployees();
 
 /*
     Call the `addEmployee` method on the 
@@ -117,7 +129,7 @@ console.log(emA.getSchedule());
     'Coach' or whatever name you'd like.
 */
 
-//CODE HERE 
+manager.addEmployee("Jane"); 
 
 /*
     Call the `getEmployees` method on the
@@ -125,4 +137,5 @@ console.log(emA.getSchedule());
     that an employee was added.
 */
 
-//CODE HERE
+manager.getEmployees();
+console.log(manager)
